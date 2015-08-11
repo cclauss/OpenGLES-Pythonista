@@ -1,2 +1,2 @@
 # OpenGLES-Pythonista
-OpenGLES bindings for the lastes pythonista beta
+OpenGLES bindings for the lastest pythonista beta
