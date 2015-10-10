@@ -11,12 +11,9 @@ EAGLContext_OBJC = ObjCClass("EAGLContext")
 
 class EAGLSharegroup(object):
     def __init__(self, c_sharegroup=None, gles_api=RenderingAPI.OpenGLES2):
-        if c_sharegroup is None:
-            sg = ObjCClass('EAGLSharegroup')
-            self._sharegroup = sg.alloc().initWithAPI_(gles_api)
-        else:
-            self._sharegroup = c_sharegroup
-            
+        self._sharegroup = (c_sharegroup or
+            ObjCClass('EAGLSharegroup').alloc().initWithAPI_(gles_api))
+
     def __str__(self):
         return str(self._sharegroup.description())
         
