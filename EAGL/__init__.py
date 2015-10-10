@@ -58,11 +58,7 @@ class EAGLContext(object):
 
 
 def setCurrentContext(context):
-    if '_context' in context.__dict__:
-        v = EAGLContext_OBJC.setCurrentContext_(context._context)
-    else:
-        v = EAGLContext_OBJC.setCurrentContext_(context)
-    return v
+    return EAGLContext_OBJC.setCurrentContext_(context.__dict__.get('_context', context))
     
 def currentContext():
     return EAGLContext(None, EAGLContext_OBJC.currentContext())
